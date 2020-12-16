@@ -356,7 +356,7 @@
         <sqlFile path="patientUpcomingAppointments.sql"/>
     </changeSet>
 
-    <changeSet id="global-property-upcoming-appointments-sql-update" author="Shankar, Mahesh">
+    <changeSet id="global-property-upcoming-appointments-sql-update_v2" author="Shankar, Mahesh">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">select count(*) from global_property where property='bahmni.sqlGet.upComingAppointments'</sqlCheck>
         </preConditions>
