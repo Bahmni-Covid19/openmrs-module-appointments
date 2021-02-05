@@ -27,6 +27,7 @@ public class TeleconsultationAppointmentSavedEventListener implements Applicatio
         try {
             emailNotificationService.sendTeleconsultationAppointmentLinkEmail(event.getAppointment());
         } catch (EmailNotificationException e) {
+            event.getAppointment().setEmailSent(false);
             log.error("Unable to send teleconsultation appointment email notification", e);
         }
     }

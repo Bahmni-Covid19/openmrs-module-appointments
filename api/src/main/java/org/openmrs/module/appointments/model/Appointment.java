@@ -34,6 +34,7 @@ public class Appointment extends BaseOpenmrsData implements Serializable {
     private Set<AppointmentAudit> appointmentAudits = new HashSet<>();
     private Appointment relatedAppointment;
     private String timezone;
+    private Boolean isEmailSent;
 
     public Set<AppointmentAudit> getAppointmentAudits() {
         return appointmentAudits;
@@ -222,6 +223,14 @@ public class Appointment extends BaseOpenmrsData implements Serializable {
 
     public void setTimezone(String timezone) {
         this.timezone = timezone;
+    }
+
+    public Boolean getEmailSent() {
+        return isEmailSent;
+    }
+
+    public void setEmailSent(Boolean emailSent) {
+        isEmailSent = emailSent;
     }
 }
 
