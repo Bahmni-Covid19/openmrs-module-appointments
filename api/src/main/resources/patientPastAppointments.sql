@@ -12,7 +12,7 @@ FROM
    JOIN person p ON p.person_id = pa.patient_id AND pa.voided IS FALSE
    JOIN appointment_service app_service
      ON app_service.appointment_service_id = pa.appointment_service_id AND app_service.voided IS FALSE
-   LEFT JOIN provider prov ON prov.provider_id = pap.provider_id AND prov.retired IS FALSE
+   LEFT JOIN provider prov ON prov.provider_id = pa.provider_id AND prov.retired IS FALSE
    LEFT JOIN person_name pn ON pn.person_id = prov.person_id AND pn.voided IS FALSE
    LEFT JOIN appointment_service_type app_service_type
      ON app_service_type.appointment_service_type_id = pa.appointment_service_type_id
