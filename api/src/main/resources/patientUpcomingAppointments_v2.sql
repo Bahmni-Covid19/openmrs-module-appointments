@@ -1,6 +1,6 @@
 UPDATE global_property
 SET property_value= "SELECT
-  app_service.uuid,
+  pa.uuid,
   app_service.name                                                                                AS `DASHBOARD_APPOINTMENTS_SERVICE_KEY`,
   app_service_type.name                                                                           AS `DASHBOARD_APPOINTMENTS_SERVICE_TYPE_KEY`,
   DATE_FORMAT(start_date_time, \"%d/%m/%Y\")                                                        AS `DASHBOARD_APPOINTMENTS_DATE_KEY`,
@@ -8,7 +8,7 @@ SET property_value= "SELECT
   CONCAT(pn.given_name, ' ', pn.family_name)                                                      AS `DASHBOARD_APPOINTMENTS_PROVIDER_KEY`,
   pa.status                                                                                       AS `DASHBOARD_APPOINTMENTS_STATUS_KEY`,
   start_date_time                                                                                 AS `DASHBOARD_APPOINTMENTS_START_DATE_KEY`,
-  end_date_time                                                                                       AS `DASHBOARD_APPOINTMENTS_STATUS_KEY`,
+  end_date_time                                                                                       AS `DASHBOARD_APPOINTMENTS_END_DATE_KEY`,
   pa.teleconsultation                                                                             AS `DASHBOARD_APPOINTMENTS_TELECONSULTATION`
 
 FROM
