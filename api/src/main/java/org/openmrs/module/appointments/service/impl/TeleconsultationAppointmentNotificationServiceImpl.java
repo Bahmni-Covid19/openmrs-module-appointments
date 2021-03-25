@@ -64,7 +64,7 @@ public class TeleconsultationAppointmentNotificationServiceImpl implements Telec
                 String date = destZonedDateTime.format(DateTimeFormatter.ofPattern("dd/MM/yy"));
                 String time = destZonedDateTime.format(DateTimeFormatter.ofPattern("hh:mm a z"));
 
-                Properties properties = emailTemplateConfig.getProperties();
+                Properties properties = emailTemplateConfig.getProperties(); 
                 String emailSubject = null;
                 String emailBody = null;
                 String emailLogo = null;
