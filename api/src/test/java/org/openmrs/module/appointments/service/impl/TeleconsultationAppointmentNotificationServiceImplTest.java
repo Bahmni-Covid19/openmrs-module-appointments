@@ -87,7 +87,7 @@ public class TeleconsultationAppointmentNotificationServiceImplTest {
         Patient patient = new Patient();
         patient.setUuid("patientUuid");
         PersonAttributeType personAttributeType = new PersonAttributeType();
-        personAttributeType.setName("email");
+        personAttributeType.setName("Email");
         patient.addAttribute(new PersonAttribute(personAttributeType, "someemail@gmail.com"));
         appointment.setPatient(patient);
         return appointment;

@@ -2,7 +2,7 @@
 <dataset>
     <person person_id="3" gender="M" dead="false" creator="1" birthdate_estimated="0" date_created="2008-08-15 15:57:09.0" voided="false" void_reason="" uuid="75e04d42-3ca8-11e3-bf2b-0800271c1b77"/>
 
-    <person_attribute_type person_attribute_type_id="100" name="email" description="Email address" format="java.lang.String" searchable="true" creator="1" date_created="2009-05-17 09:59:23.0" retired="false" sort_weight="20" uuid="b3ghd540-a32e-44c7-91b3-292d97667518"/>
+    <person_attribute_type person_attribute_type_id="100" name="Email" description="Email address" format="java.lang.String" searchable="true" creator="1" date_created="2009-05-17 09:59:23.0" retired="false" sort_weight="20" uuid="b3ghd540-a32e-44c7-91b3-292d97667518"/>
 
     <person_attribute person_attribute_id="1" person_attribute_type_id="100" person_id="3" value="someemail@gmail.com" creator="1" date_created="2009-05-17 09:59:23.0" uuid="b3ghd540-a32e-44c7-91b3-292d97667518"/>
 

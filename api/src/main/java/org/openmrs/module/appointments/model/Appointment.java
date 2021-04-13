@@ -214,7 +214,7 @@ public class Appointment extends BaseOpenmrsData implements Serializable {
     }
 
     public Boolean isEmailIdAvailable() {
-        return this.patient.getAttribute("email") != null ? true : false;
+        return this.patient.getAttribute("Email") != null ? true : false;
     }
 
     public String getTimezone() {

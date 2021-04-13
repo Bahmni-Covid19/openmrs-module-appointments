@@ -42,7 +42,7 @@ public class TeleconsultationAppointmentNotificationServiceTest extends BaseInte
     public void testSendNotification() throws EmailNotificationException {
         Appointment appointment = appointmentDao.getAppointmentByUuid("75504r42-3ca8-11e3-bf2b-0800271c1b77");
         assertNotNull(appointment);
-        assertNotNull(appointment.getPatient().getAttribute("email"));
+        assertNotNull(appointment.getPatient().getAttribute("Email"));
         teleconsultationAppointmentNotificationService.sendTeleconsultationAppointmentLinkEmail(appointment);
     }
 }

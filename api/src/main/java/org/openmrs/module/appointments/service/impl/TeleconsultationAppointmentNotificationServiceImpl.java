@@ -40,7 +40,7 @@ public class TeleconsultationAppointmentNotificationServiceImpl implements Telec
     public void sendTeleconsultationAppointmentLinkEmail(Appointment appointment) throws EmailNotificationException {
         String link = teleconsultationAppointmentService.getTeleconsultationURL(appointment);
         Patient patient = appointment.getPatient();
-        PersonAttribute patientEmailAttribute = patient.getAttribute("email");
+        PersonAttribute patientEmailAttribute = patient.getAttribute("Email");
         try {
             if (patientEmailAttribute != null) {
                 String email = patientEmailAttribute.getValue();
