@@ -38,7 +38,7 @@ public class TeleconsultationAppointmentNotificationServiceImpl implements Telec
     }
 
     public void sendTeleconsultationAppointmentLinkEmail(Appointment appointment) throws EmailNotificationException {
-        String link = teleconsultationAppointmentService.getTeleconsultationURL(appointment);
+
         Patient patient = appointment.getPatient();
         PersonAttribute patientEmailAttribute = patient.getAttribute("Email");
         try {
@@ -64,7 +64,8 @@ public class TeleconsultationAppointmentNotificationServiceImpl implements Telec
                 String date = destZonedDateTime.format(DateTimeFormatter.ofPattern("dd/MM/yy"));
                 String time = destZonedDateTime.format(DateTimeFormatter.ofPattern("hh:mm a z"));
 
-                Properties properties = emailTemplateConfig.getProperties(); 
+                Properties properties = emailTemplateConfig.getProperties();
+                String link = "";
                 String emailSubject = null;
                 String emailBody = null;
                 String emailLogo = null;
@@ -72,11 +73,23 @@ public class TeleconsultationAppointmentNotificationServiceImpl implements Telec
                     emailBody = properties.getProperty("email.body");
                     emailSubject = properties.getProperty("email.subject");
                     emailLogo = properties.getProperty("email.logo");
+                    link = properties.getProperty("email.jitsiURL");
+                    if(link != null) {
+                        link = link + appointment.getUuid();
+                    } else {
+                        link = "";
+                    }
+
                 }
                 else {
                     emailBody = EMAIL_BODY;
                     emailSubject = EMAIL_SUBJECT;
                     emailLogo = EMAIL_LOGO;
+                }
+
+                if(link.isEmpty())
+                {
+                    link = teleconsultationAppointmentService.getTeleconsultationURL(appointment);
                 }
 
                 emailNotificationService.send(
