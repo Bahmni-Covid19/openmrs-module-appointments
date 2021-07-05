@@ -185,4 +185,29 @@ public class AppointmentController extends BaseRestController {
         }
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/contactDetails/email")
+    @ResponseBody
+    public ResponseEntity<Object> getEmailForAppointmentNotificationByUuid(@RequestParam(value = "uuid") String uuid) {
+        try{
+            String email = appointmentMapper.getPersonAttributeValueFromUuid(uuid,"email");
+            return new ResponseEntity<>(email, HttpStatus.OK);
+        }
+        catch (RuntimeException e)
+        {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/contactDetails/primaryContact")
+    @ResponseBody
+    public ResponseEntity<Object> getPrimaryContactForAppointmentNotificationByUuid(@RequestParam(value = "uuid") String uuid) {
+        try {
+            String primaryContact = appointmentMapper.getPersonAttributeValueFromUuid(uuid,"primaryContact");
+            return new ResponseEntity<>(primaryContact, HttpStatus.OK);
+        }
+        catch (RuntimeException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

@@ -3,6 +3,7 @@ package org.openmrs.module.appointments.web.mapper;
 import org.apache.commons.lang.StringUtils;
 import org.openmrs.Location;
 import org.openmrs.Patient;
+import org.openmrs.PersonAttribute;
 import org.openmrs.Provider;
 import org.openmrs.api.LocationService;
 import org.openmrs.api.PatientService;
@@ -270,5 +271,11 @@ public class AppointmentMapper {
             conflictsResponse.put(entry.getKey().name(), constructResponse(entry.getValue()));
         }
         return conflictsResponse;
+    }
+
+    public String getPersonAttributeValueFromUuid(String uuid, String attribute){
+        Patient patient = patientService.getPatientByUuid(uuid);
+        PersonAttribute personAttribute = patient.getAttribute(attribute);
+        return personAttribute.getValue();
     }
 }
